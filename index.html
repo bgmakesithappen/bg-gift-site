@@ -279,11 +279,12 @@
             <h2 class="section-title">Share Your Wishlist</h2>
             <p>Want to share your own wishlist with me? Fill out the form below!</p>
 
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form id="form" action="https://api.web3forms.com/submit" method="POST">
                 <!-- Web3Forms configuration -->
                 <input type="hidden" name="access_key" value="d5dbab55-99e3-4879-9094-9df385aed6a7">
                 <input type="hidden" name="subject" value="New Wishlist Submission">
                 <input type="hidden" name="from_name" value="Ben's Wishlist">
+                <input type="hidden" name="redirect" value="https://bgwishlist.vercel.app/thanks.html">
 
                 <div class="form-group">
                     <label for="name">Your Name</label>
@@ -308,5 +309,10 @@
             <p>Thanks for checking out my wishlist!</p>
         </footer>
     </div>
+    <script>
+        window.onload = function() {
+            document.getElementById("form").reset();
+        };
+    </script>
 </body>
 </html>
