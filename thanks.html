@@ -6,7 +6,26 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Thanks! - Ben's Gift Wishlist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap">
     <style>
+        /* Winter Evening theme (BGH-96), shared tokens with index.html */
+        :root {
+            --bg: #151C26;
+            --surface: #1F2836;
+            --text: #EDF0F4;
+            --muted: #A3AEBD;
+            --border: #2D3848;
+            --accent: #D6B26A;
+            --accent-hover: #E2C27F;
+            --accent-2: #8EB0C6;
+            --btn-text: #1A1A1A;
+            --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            color-scheme: dark;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,10 +34,19 @@
 
         body {
             min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-            background: #E8E4DD;
-            color: #3A3A3A;
-            padding: 2rem;
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(1.5px 1.5px at 9% 8%, rgba(214, 178, 106, 0.55) 50%, transparent 51%),
+                radial-gradient(1px 1px at 24% 16%, rgba(237, 240, 244, 0.45) 50%, transparent 51%),
+                radial-gradient(1.2px 1.2px at 41% 5%, rgba(142, 176, 198, 0.5) 50%, transparent 51%),
+                radial-gradient(1.6px 1.6px at 66% 11%, rgba(214, 178, 106, 0.5) 50%, transparent 51%),
+                radial-gradient(1px 1px at 82% 6%, rgba(142, 176, 198, 0.45) 50%, transparent 51%),
+                radial-gradient(1.3px 1.3px at 93% 17%, rgba(237, 240, 244, 0.45) 50%, transparent 51%);
+            background-size: 100% 360px;
+            background-repeat: no-repeat;
+            color: var(--text);
+            padding: 2rem 1rem;
             line-height: 1.6;
             display: flex;
             align-items: center;
@@ -26,19 +54,26 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 520px;
+            width: 100%;
             text-align: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 2.75rem 2rem;
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #3A3A3A;
-            margin-bottom: 1rem;
+            font-family: var(--font-display);
+            font-size: 3.25rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 0.75rem;
         }
 
         p {
-            color: #5a5a5a;
+            color: var(--muted);
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
@@ -46,18 +81,43 @@
         .back-link {
             display: inline-block;
             padding: 1rem 2rem;
-            background: #E85A3C;
+            background: var(--accent);
             border-radius: 0.75rem;
-            color: #fff;
+            color: var(--btn-text);
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: background-color 0.25s ease, transform 0.25s ease;
         }
 
         .back-link:hover {
-            background: #d14a2e;
+            background: var(--accent-hover);
             transform: translateY(-2px);
+        }
+
+        .back-link:focus-visible {
+            outline: 2px solid var(--accent-2);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2.25rem 1.25rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .back-link {
+                transition: none;
+            }
+
+            .back-link:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
